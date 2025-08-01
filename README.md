@@ -71,4 +71,4 @@ ros2 control list_controllers
 
 ## License
 
-MIT License
+Apache 2.0 License
