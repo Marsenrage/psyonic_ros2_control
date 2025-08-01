@@ -1,6 +1,6 @@
 # Psyonic Hand ROS2 Control Package
 
-ROS2 control package for the Psyonic Ability Hand prosthetic with trajectory control and force sensing.
+ROS2 control package for the [Psyonic Ability Hand](https://github.com/psyonicinc) prosthetic with trajectory control and force sensing.
 
 ## Features
 
