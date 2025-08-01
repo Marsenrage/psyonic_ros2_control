@@ -11,6 +11,10 @@ ROS2 control driver for the [Psyonic Ability Hand](https://github.com/psyonicinc
 - 🎯 Trajectory following at 125Hz
 - 🖥️ Mock hardware support
 
+## System Requirements
+- ✅ ROS 2 Jazzy
+- ✅ Ubuntu 24.04 LTS
+
 ## Quick Start
 
 ### Installation
