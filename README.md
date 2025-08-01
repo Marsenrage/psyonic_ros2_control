@@ -1,7 +1,6 @@
 # Psyonic Hand ROS2 Control Package
 
-ROS2 control package for the [Psyonic Ability Hand](https://github.com/psyonicinc) prosthetic with trajectory control and force sensing.
-
+ROS 2 control driver for the [Psyonic Ability Hand](https://github.com/psyonicinc), compatible with MoveIt 2 and real hardware, with built-in force sensing support.
 ## Features
 
 - 🦾 6-DOF hand control (4 fingers + 2-DOF thumb)
