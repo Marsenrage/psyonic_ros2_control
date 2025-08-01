@@ -1,0 +1,5 @@
+<library path="psyonic_hardware_interface">
+  <class name="psyonic_hardware_interface/PsyonicHandHardware" type="psyonic_hardware_interface::PsyonicHandHardware" base_class_type="hardware_interface::SystemInterface">
+    <description>Psyonic Ability Hand hardware interface</description>
+  </class>
+</library>
