@@ -37,7 +37,7 @@ ros2 launch psyonic_bring_up psyonic_bringup.launch.py use_mock_psyonic:=false
 
 **Test:**
 ```bash
-python3 src/psyonic_bring_up/scripts/test_psyonic_hand.py
+python3 src/psyonic_ros2_control/psyonic_bring_up/scripts/test_psyonic_hand.py 
 ```
 
 ## Configuration
