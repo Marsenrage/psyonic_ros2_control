@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- 
+        Psyonic Hand ROS2 Control Macro
+        
+        Parameters:
+        - use_mock_psyonic: true/false - Switch between mock and real hardware
+        - hand_name: String - Name prefix for the hand (e.g., "Left_Hand", "Right_Hand")
+        - hardware_name: String - Name of the hardware interface (default: "PsyonicHandHardware")
+        - device_name: String - Serial device path for real hardware (default: "/dev/ttyUSB0")
+        - baud_rate: Int - Serial baud rate (default: 115200)
+        - timeout: Float - Communication timeout in seconds (default: 1.0)
+    -->
+    <xacro:macro name="psyonic_ros2_control" params="
+        use_mock_psyonic:=true
+        hand_name:=Left_Hand
+        device_name:=/dev/ttyUSB0
+        baud_rate:=460800
+        timeout:=1.0
+        reply_model:=1
+        command_mode:=POSITION
+        hardware_name:=PsyonicHandHardware"
+        >  
+
+        <ros2_control name="${hardware_name}" type="system">
+            <hardware>
+                <xacro:if value="${use_mock_psyonic}">
+                    <plugin>mock_components/GenericSystem</plugin>
+                    <param name="mock_sensor_commands">false</param>
+                    <param name="state_following_offset">0.0</param>
+                </xacro:if>
+                <xacro:unless value="${use_mock_psyonic}">
+                    <plugin>psyonic_hardware_interface/PsyonicHandHardware</plugin>
+                    <param name="device_name">${device_name}</param>
+                    <param name="baud_rate">${baud_rate}</param>
+                    <param name="timeout">${timeout}</param>
+                    <param name="hand_address">80</param>
+                    <param name="reply_model">${reply_model}</param>
+                    <param name="command_mode">${command_mode}</param>
+                </xacro:unless>
+            </hardware>
+            
+            <!-- Index Finger -->
+            <joint name="${hand_name}_index_q1">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">1.74</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            
+            <!-- Middle Finger -->
+            <joint name="${hand_name}_middle_q1">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">1.74</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            
+            <!-- Ring Finger -->
+            <joint name="${hand_name}_ring_q1">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">1.74</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            
+            <!-- Pinky Finger -->
+            <joint name="${hand_name}_pinky_q1">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">1.74</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            
+            <!-- Thumb -->
+
+            <joint name="${hand_name}_thumb_q2">
+                <command_interface name="position">
+                    <param name="min">0</param>
+                    <param name="max">1.74</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+
+
+            <joint name="${hand_name}_thumb_q1">
+                <command_interface name="position">
+                    <param name="min">-1.74</param>
+                    <param name="max">0</param>
+                </command_interface>
+                <state_interface name="position"/>
+                <state_interface name="velocity"/>
+                <state_interface name="effort"/>
+            </joint>
+            
+
+            <!-- FSR Sensors (Force Sensitive Resistors) -->
+            <sensor name="${hand_name}_fsr_sensors">
+                <state_interface name="fsr0"/>
+                <state_interface name="fsr1"/>
+                <state_interface name="fsr2"/>
+                <state_interface name="fsr3"/>
+                <state_interface name="fsr4"/>
+                <state_interface name="fsr5"/>
+                <state_interface name="fsr6"/>
+                <state_interface name="fsr7"/>
+                <state_interface name="fsr8"/>
+                <state_interface name="fsr9"/>
+                <state_interface name="fsr10"/>
+                <state_interface name="fsr11"/>
+                <state_interface name="fsr12"/>
+                <state_interface name="fsr13"/>
+                <state_interface name="fsr14"/>
+                <state_interface name="fsr15"/>
+                <state_interface name="fsr16"/>
+                <state_interface name="fsr17"/>
+                <state_interface name="fsr18"/>
+                <state_interface name="fsr19"/>
+                <state_interface name="fsr20"/>
+                <state_interface name="fsr21"/>
+                <state_interface name="fsr22"/>
+                <state_interface name="fsr23"/>
+                <state_interface name="fsr24"/>
+                <state_interface name="fsr25"/>
+                <state_interface name="fsr26"/>
+                <state_interface name="fsr27"/>
+                <state_interface name="fsr28"/>
+                <state_interface name="fsr29"/>
+            </sensor>
+        </ros2_control>
+
+    </xacro:macro>
+
+</robot>

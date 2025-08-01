@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot name="psyonic_hand" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Declare the use_mock_psyonic argument -->
+    <xacro:arg name="use_mock_psyonic" default="true"/>
+    <xacro:arg name="hand_name" default="Left_Hand"/>
+    <xacro:arg name="device_name" default="/dev/ttyUSB0"/>
+    <xacro:arg name="baud_rate" default="460800"/>
+    <xacro:arg name="timeout" default="1.0"/>
+    <xacro:arg name="reply_model" default="1"/>
+    <xacro:arg name="command_mode" default="POSITION"/>
+    <xacro:arg name="hardware_name" default="PsyonicHandHardware"/>
+
+    <!-- Include the file containing the pah macro -->
+    <xacro:include filename="$(find psyonic_description)/urdf/psyonic.urdf.xacro" />
+    <xacro:include filename="$(find psyonic_description)/urdf/ros2_control.urdf.xacro" />
+    <!-- Define a base link to attach the hand to -->
+    <link name="world"/>
+
+    <!-- Instantiate the Psyonic hand using the pah macro -->
+    <xacro:pah parent="world"  hand_name="$(arg hand_name)">
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 -1.57"/>
+    </xacro:pah>
+
+    <!-- Instantiate the ros2_control macro for the Psyonic hand -->
+    <xacro:psyonic_ros2_control
+        use_mock_psyonic="$(arg use_mock_psyonic)"
+        hand_name= "$(arg hand_name)"
+        device_name="$(arg device_name)"
+        baud_rate="$(arg baud_rate)"
+        timeout="$(arg timeout)" 
+        reply_model="$(arg reply_model)"
+        hardware_name="$(arg hardware_name)"     
+        command_mode="$(arg command_mode)"
+    />
+
+</robot>
