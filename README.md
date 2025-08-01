@@ -1,6 +1,10 @@
 # Psyonic Hand ROS2 Control Package
 
 ROS 2 control driver for the [Psyonic Ability Hand](https://github.com/psyonicinc), compatible with MoveIt 2 and real hardware, with built-in force sensing support. This package is part of the upcoming DexMobile project — a dual-arm mobile manipulation platform. Full system release coming soon.
+<video width="640" height="360" controls>
+  <source src="https://Marsenrage.github.io/images/psyonic_demo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 ## Features
 - 🦾 6-DOF hand control (4 fingers + 2-DOF thumb)
