@@ -15,7 +15,7 @@ ROS2 control package for the Psyonic Ability Hand prosthetic with trajectory con
 
 ```bash
 mkdir -p ~/psyonic_ws/src && cd ~/psyonic_ws/src
-git clone <your-repo-url>
+git clone [<your-repo-url>](https://github.com/Marsenrage/psyonic_ros2_control.git)
 cd ~/psyonic_ws
 rosdep install --from-paths src --ignore-src -r -y
 colcon build && source install/setup.bash
