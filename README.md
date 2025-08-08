@@ -4,6 +4,7 @@ ROS2 control driver for the [Psyonic Ability Hand](https://github.com/psyonicinc
 <p align="center"> 
 <img src="https://github.com/Marsenrage/Marsenrage.github.io/blob/master/images/psyonic_demo.gif" alt=psyonic demo" width="400"/>
 </p>
+<p> This project is funded by NSF #2420355</p>
 
 ## Features
 - 🦾 6-DOF hand control (4 fingers + 2-DOF thumb)
